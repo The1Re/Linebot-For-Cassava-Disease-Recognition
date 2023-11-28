@@ -1,0 +1,33 @@
+Model Info: 
+Model_Base: ResNet50
+Model_Layer_Style: OriginalBon
+Model_Freeze: None
+OPTIMIZER: SGD
+: 
+Setting: 
+TRAIN_DIR: ./data/train/
+TEST_DIR: ./data/test/
+SAVED_MODEL_DIR: Saved_model
+CLASS_NUM: 5
+SEED: 1
+BATCH_SIZE: 32
+EPOCHS: 10
+IMAGE_SIZE: 224 x 224
+VALIDATION_SPLIT: 0.2
+LEARNING_RATE: 0.01
+class_names: ['cbb', 'cbsd', 'cgm', 'cmd', 'healthy']
+LOSS: sparse_categorical_crossentropy
+: 
+Result: 
+Accuracy SavedEpoch: 0.8977142857
+Accuracy LastEpoch: 0.8994285714
+PC: KOFirst
+Runtimes: 11.178042531013489
+: 
+Callback: 
+USING_EARLY_STOPPING: True
+EARLY_STOPPING: {"monitor": "val_loss", "min_delta": -0.001, "patience": 7, "mode": "min", "baseline": null, "restore_best_weights": true}
+USING_REDUCE_LR: True
+REDUCE_LR: {"monitor": "val_loss", "factor": 0.3, "patience": 3, "mode": "auto", "min_delta": 0.0001, "cooldown": 0, "min_lr": 1e-06}
+USING_CHECKPOINT: True
+MODEL_CHECKPOINT: {"monitor": "val_acc", "save_best_only": true, "save_weights_only": false, "mode": "max", "save_freq": "epoch"}
